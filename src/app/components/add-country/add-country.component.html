@@ -1,0 +1,67 @@
+<div>
+<form [formGroup]="countryForm" (ngSubmit)="addCountry()" >
+  <!-- (ngSubmit)="addCountry(countryForm.value)" -->
+  <!-- (ngSubmit)="onSubmit(countryForm.value)" -->
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="capital">
+      Capital
+    </label>
+    <input id="capital" type="text" formControlName="capital">
+  </div>
+
+  <div>
+    <label for="currency">
+      Currency
+    </label>
+    <input id="currency" type="text" formControlName="currency">
+  </div>
+
+  <div>
+    <label for="best_season">
+      Best time to visit
+    </label>
+    <input id="best_season" type="text" formControlName="best_season">
+  </div>
+  <div>
+    <label for="meal_cost">
+      Meal Cost
+    </label>
+    <input id="meal_cost" type="number" formControlName="meal_cost">
+  </div>
+
+  <div>
+    <label for="hotel_cost">
+      Hotel cost
+    </label>
+    <input id="hotel_cost" type="number" formControlName="hotel_cost">
+  </div>
+
+  <div>
+    <label for="image_url">
+      Image-url
+    </label>
+    <input id="image_url" type="text" formControlName="image_url">
+  </div>
+
+  <div>
+    <label for="description">
+      Description
+    </label>
+    <input id="description" type="text" formControlName="description">
+  </div>
+  <button class="button" type="submit">Add</button>
+
+</form>
+</div>
+<!-- <app-add-country 
+   (addCountry)='addCountry($event)'>
+
+
+  </app-add-country> -->
