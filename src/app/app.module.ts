@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CountryService } from './services/country.service';
 
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
 import { CountryItemComponent } from './components/country-item/country-item.component';
@@ -13,6 +14,7 @@ import { CountryDetailsComponent } from './components/country-details/country-de
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AboutComponent } from './components/about/about.component';
+import { UpdateCountryComponent } from './components/update-country/update-country.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AboutComponent } from './components/about/about.component';
     AddCountryComponent,
     CountryDetailsComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    UpdateCountryComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { AboutComponent } from './components/about/about.component';
     //   { path: 'countries/new',pathMatch: 'full', component: AddCountryComponent}
     // ])
   ],
-  providers: [],
+  providers: [CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

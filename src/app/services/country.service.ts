@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Country } from '../models/Country';
-import { Observable } from 'rxjs';
+import { Observable,BehaviorSubject } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,15 +13,29 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CountryService {
-  apiURL:string = 'http://localhost:3000';
+  apiURL: string = 'http://localhost:3000';
+  private countries = new BehaviorSubject<Country[]>([]);
+  
   constructor(private http:HttpClient) { }
 
   getCountries():Observable<Country[]> {
     return this.http.get<Country[]>(`${this.apiURL}/countries`);
   }
 
+
   addCountry(country: Country): Observable<Country> {
+    // debugger;
     return this.http.post<Country>(`${this.apiURL}/countries`, country, httpOptions);
+  }
+
+  updateCountryData(newCountry) {
+    this.countries.next(newCountry)
+    
+  }
+
+  addCountryToList(newCountry) {
+    debugger;
+    this.countries.next(newCountry)
   }
   
   deleteCountry(country: Country): Observable<Country> {

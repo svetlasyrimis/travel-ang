@@ -11,8 +11,9 @@ import { CountryService } from 'src/app/services/country.service';
   styleUrls: ['./add-country.component.css']
 })
 export class AddCountryComponent implements OnInit {
-  @Output() addCountryToList: EventEmitter<any> = new EventEmitter();
+  // @Output() addCountryToList: EventEmitter<any> = new EventEmitter();
   countryForm;
+  country;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,19 +36,12 @@ export class AddCountryComponent implements OnInit {
     
   }
 
-  // onSubmit(countryData) {
-    
-  //   this.countryForm.reset();
-  //   console.warn('New Country', countryData);
-  //   // debugger;
-  //   this.addCountry.emit(countryData)
-    
-  // }
 
   addCountry() {
     debugger;
-    this.countryService.addCountry(this.countryForm.value).subscribe(country => this.countryForm = country);
-    this.addCountryToList.emit(this.countryForm)
+    let newCountry = this.countryService.addCountry(this.countryForm.value).subscribe(country => this.country = country);
+    this.countryService.updateCountryData(newCountry);
+    this.countryForm.reset();
     this.router.navigate([''])
   }
   

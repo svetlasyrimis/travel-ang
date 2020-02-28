@@ -1,10 +1,11 @@
-<app-country-item 
+<div class="countries-list"><app-country-item 
   *ngFor="let country of countries;index as id"
   [country]="country"
   (deleteCountry)='deleteCountry($event)'
-  (addCountryToList)='addCountryToList($event)'>
+  class="country"
+  >
 </app-country-item>
-
+</div>
 <!-- <app-add-country 
    (addCountry)='addCountry($event)'>
   </app-add-country> -->

@@ -14,26 +14,15 @@ export class CountriesListComponent implements OnInit {
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
+    debugger
     this.countryService.getCountries().subscribe(countries => {
       this.countries = countries
+      console.log(this.countries)
+      // this.countries.reverse()
     })
-
-    // console.log(history.state.data)
-  }
-
-  // addCountryToList(country: Country) {
-  //   debugger;
-  //   this.countryService.addCountry(country).subscribe(country => {
-  //     this.countries.push(country)
-  //   })
-  // }
-
-  addCountryToList(country: Country) {
-    this.countries.push(country)
     
   }
 
-  
 
   deleteCountry(country: Country) {
     this.countries = this.countries.filter(del => del.id !== country.id);
