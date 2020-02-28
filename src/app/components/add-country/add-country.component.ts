@@ -38,7 +38,6 @@ export class AddCountryComponent implements OnInit {
 
 
   addCountry() {
-    debugger;
     let newCountry = this.countryService.addCountry(this.countryForm.value).subscribe(country => this.country = country);
     this.countryService.updateCountryData(newCountry);
     this.countryForm.reset();

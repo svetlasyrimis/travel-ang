@@ -18,7 +18,7 @@ export class CountryItemComponent implements OnInit {
   }
 
   onDelete(country) {
-    // debugger;
+    
     this.deleteCountry.emit(country)
   }
 }
