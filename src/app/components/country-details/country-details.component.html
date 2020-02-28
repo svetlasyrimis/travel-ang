@@ -8,5 +8,6 @@
   <p>Meal cost:{{country.meal_cost}}</p>
   <p>Description: {{country.description}}</p>
 
-  <button>Update info</button>
+  <button (click)="loadForm()">Update info</button>
+  <div *ngIf='isEdit'><app-update-country [country]="country"  ></app-update-country>></div>
 </div>

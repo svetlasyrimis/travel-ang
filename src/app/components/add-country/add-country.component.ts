@@ -1,9 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { CountryService } from 'src/app/services/country.service';
+import { Country } from 'src/app/models/Country';
 
-// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-add-country',
@@ -11,9 +11,9 @@ import { CountryService } from 'src/app/services/country.service';
   styleUrls: ['./add-country.component.css']
 })
 export class AddCountryComponent implements OnInit {
-  // @Output() addCountryToList: EventEmitter<any> = new EventEmitter();
   countryForm;
   country;
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,6 +45,4 @@ export class AddCountryComponent implements OnInit {
     this.router.navigate([''])
   }
   
-
-
 }

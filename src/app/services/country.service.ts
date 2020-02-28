@@ -15,7 +15,9 @@ const httpOptions = {
 export class CountryService {
   apiURL: string = 'http://localhost:3000';
   private countries = new BehaviorSubject<Country[]>([]);
-  
+  // private country = new BehaviorSubject({});
+  // cast = this.country.asObservable();
+
   constructor(private http:HttpClient) { }
 
   getCountries():Observable<Country[]> {
@@ -30,20 +32,21 @@ export class CountryService {
 
   updateCountryData(newCountry) {
     this.countries.next(newCountry)
-    
   }
 
-  addCountryToList(newCountry) {
-    debugger;
-    this.countries.next(newCountry)
-  }
+  // updateOneCountry(newCountry) {
+  //   this.countries.next(newCountry)
+  // }
+
+  
   
   deleteCountry(country: Country): Observable<Country> {
     
     return this.http.delete<Country>(`${this.apiURL}/countries/${country.id}`);
   }
 
-  updateCountry(country: Country):Observable<any> {
+  updateCountry(country: Country): Observable<any> {
+    // debugger;
     const url = `${this.apiURL}/countries/${country.id}`;
     return this.http.put(url, country, httpOptions);
   }
