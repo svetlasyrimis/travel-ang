@@ -1,4 +1,4 @@
-<p>{{ country.name }}</p>
+
 <a [title]="country.name + ' details'" [routerLink]="['/countries', country.id]" routerLinkActive="active" [state]="country">{{ country.name }}</a>
 <img src={{country.image_url}} alt="pic" class="country-image">
 <button (click)="onDelete(country)">Delete</button>

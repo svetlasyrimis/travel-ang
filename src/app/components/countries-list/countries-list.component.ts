@@ -19,7 +19,9 @@ export class CountriesListComponent implements OnInit {
   
     
     // this.countryService.getCountries();
-    this.countryService.getCountries().subscribe(countries => this.countries = countries)
+    this.countryService.getCountries().subscribe(countries =>
+      
+      this.countries = countries)
     //   .subscribe(countries => {
     //   this.countries = countries
     // });

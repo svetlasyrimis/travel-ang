@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Country } from '../models/Country';
-import { Observable,BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+// import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+
+import { tap, map,catchError } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,12 +17,23 @@ const httpOptions = {
 })
 export class CountryService {
   apiURL: string = 'http://localhost:3000';
-  private countries = new BehaviorSubject<Country[]>([]);
+  public countries = new BehaviorSubject<Country[]>([])
   
   constructor(private http:HttpClient) { }
   
+  // private handleError(errorResponse: HttpErrorResponse) {
+  //   if (errorResponse.error instanceof ErrorEvent) {
+  //       console.error('Client Side Error: ', errorResponse.error.message);
+  //   } else {
+  //       console.error('Server Side Error: ', errorResponse);
+  //   }
+
+  //   return new ErrorObservable('There is a problem with the service. We are notified & working on it. Please try again later.');
+  // }
+  
   getCountries():Observable<Country[]> {
-    return this.http.get<Country[]>(`${this.apiURL}/countries`);
+    return this.http.get<Country[]>(`${this.apiURL}/countries`)
+    
   }
 
   addCountry(country: Country): Observable<Country> {

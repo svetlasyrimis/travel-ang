@@ -1,8 +1,8 @@
 <div class="countries-list"><app-country-item 
-  *ngFor="let country of countries;index as id"
-  [country]="country"
+  *ngFor="let country of countries;"
+  [country]="country" 
   (deleteCountry)='deleteCountry($event)'
-  class="country"
+  class="country | async"
   >
 </app-country-item>
 </div>

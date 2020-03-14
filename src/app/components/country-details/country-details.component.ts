@@ -21,7 +21,7 @@ export class CountryDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.country = this.location.getState();
-    console.log(this.location.getState())
+    // console.log(this.location.getState())
     // this.countryService.cast.subscribe(country => this.country = country)
     
   }
